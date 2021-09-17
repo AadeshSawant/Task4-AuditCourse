@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testing</title>
+    <!--<script type="text/javascript" src="testing.js"></script>-->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #background-image {
+            background-image: url("https://images.unsplash.com/photo-1532153955177-f59af40d6472?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80");
+
+            height: 100%;
+            padding-top: 50px;
+            color: white;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="background-image">
+        <center>
+            <p>ENROLL FOR A COURSE</p>
+
+            <form id="form">
+                <fieldset>
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" required>
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div>
+                        <label for="age">Age</label>
+                        <input type="number" name="age" id="age" min="18" max="100" step="1">
+                    </div>
+                    <div>
+                        <label for="date">Birthdate</label>
+                        <input type="date" name="date" id="date" min="2003-01-01">
+                    </div>
+                    <div id="check">
+                        Enroll for
+                        <div>
+
+                            <input type="checkbox" value="java" id="java" name="ch">
+                            <label for="java">Java</label>
+                        </div>
+                        <div>
+
+                            <input type="checkbox" value="c++" id="c++" name="ch">
+                            <label for="c++">C++</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" value="python" id="python" name="ch">
+                            <label for="python">python</label>
+                        </div>
+                    </div>
+                    <div id="gender">
+                        Gender
+                        <div>
+                            <input type="radio" name="gender" id="gender" value="male">
+
+                            <label for="male">Male</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="gender" id="gender" value="female">
+                            <label for="female">Female</label>
+                        </div>
+                        <div>
+
+                            <input type="radio" name="gender" id="gender" value="other">
+                            <label for="other">other</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="branch" >Choose your branch:</label>
+                        <select id="branch" name="branch" form="form">
+                            <option value="cmpn">CMPN</option>
+                            <option value="it">IT</option>
+                            <option value="extc">EXTC</option>
+                            <option value="etrx">ETRX</option>
+                        </select>
+
+                    </div>
+
+                    <input type="hidden" name="hidden" value="hi">
+
+                    <div>
+                        <label for="phone">Phone</label>
+                        <input type="tel" name="phone" id="phone" required>
+                    </div>
+
+                    <label>
+                        Create Password
+                        <input type="password" id="crpassword" name="crpassword" required>
+                    </label><br>
+                    <label>
+                        Confirm Password
+                        <input type="password" id="conpassword" name="conpassword" required><br>
+                        <span id="password"></span>
+                    </label><br>
+
+                    <button type="reset" onclick="fun();">Reset</button>
+                    <button type="submit">Submit</button>
+                </fieldset>
+            </form>
+        </center>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+    <script type="text/javascript">
+        var form = document.getElementById('form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+            //console.log('Name= ' + name);
+            var mail = document.getElementById('email').value;
+            //console.log('Email= ' + mail);
+            var age = document.getElementById('age').value;
+            //console.log('Age= ' + age);
+            var date = document.getElementById('date').value;
+            // console.log('Date= ' + date);
+
+            //console.log('address= ' + address);
+            var phone = document.getElementById('phone').value;
+            // console.log('phone= ' + phone);
+            var crpswrd = document.getElementById('crpassword').value;
+            var conpswrd = document.getElementById('conpassword').value;
+
+            //console.log('create password= ' + crpswrd);
+
+            var gender = document.getElementById('gender').value;
+            var branch = document.getElementById('branch').value;
+            if (crpswrd != conpswrd) {
+                document.getElementById('password').innerHTML = "*password does not match*";
+
+
+            }
+            else {
+                console.log(' ------- ');
+                console.log('Name= ' + name);
+                console.log('Email= ' + mail);
+                console.log('Age= ' + age);
+                console.log('Date= ' + date);
+                console.log('enrolled for:');
+
+
+                var markedCheckbox = document.getElementsByName('ch');
+
+                for (var checkbox of markedCheckbox) {
+
+                    if (checkbox.checked){
+
+                        
+                    console.log(checkbox.value + ' ');}
+
+                }
+                console.log('gender= ' + gender);
+                console.log('branch= ' + branch);
+
+                console.log('phone= ' + phone);
+                console.log('create password= ' + crpswrd);
+                document.getElementById('password').style.display = "none";
+            }
+        })
+        function fun() {
+
+
+            alert("This will reset the form ");
+        }
+
+    </script>
+
+</body>
+
+</html>
